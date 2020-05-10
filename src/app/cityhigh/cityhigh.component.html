@@ -1,0 +1,49 @@
+
+
+<div>
+  <img src="../../assets/images/active-lifestyle-old-grandparents-elderly-people-vector-23658695.jpg"/>
+
+
+<div id=root>
+    <div class="container">
+      <div class="row">
+        <h1 style="font-family: serif; font-size: xxx-large;margin-top: 10px;">Find city highlights</h1>
+        <hr />
+        <div class="filter">
+          
+            <div style="width: 100%;">
+                <select [(ngModel)]="searchText" style="float: left;width: 50%;height: 50px;border-radius: 5px; font-size: large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                  <option value="" disabled selected>Select a Catagory</option>
+                  
+                  <option *ngFor="let quo of quote" [value]="quo" style="font-size: larger;">{{ quo }}</option>
+                </select>
+                <button style="height: 50px; width: 100px;font-size: x-large;font-weight: bold;margin-left: 5px;border-radius: 5px;background-color: paleturquoise;" (click)="reset()">Reset</button>
+              </div>          
+        </div>
+        <br />
+        <br />
+        <h1 style="font-family: serif; font-size: xxx-large;margin-top: 50px;">Search Result</h1>
+        <hr />
+        <div *ngIf="quotes">
+          <br />
+          <br />
+          <div id="table">
+            <div class="card" *ngFor="let quote of quotes | filter:searchText " style="float: left;">
+              <img src="../../assets/images/download.jpg">
+              <h1>{{ quote.venue_name }}</h1>
+              <div style="padding-left: 10px;">
+                <span style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large;"><b
+                    style="font-size: larger;">Address: </b> {{ quote.venue_address }}</span>
+                <br />
+                <span style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large;"><b
+                    style="font-size: larger;">Space Type: </b>{{ quote.space_type }}</span>
+                <br />
+                <span style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large;"><b
+                    style="font-size: larger;">Property ID: </b>{{ quote.PropertyID }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

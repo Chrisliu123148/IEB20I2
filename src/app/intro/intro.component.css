@@ -1,0 +1,20 @@
+.col-2-3  .icon-block{
+  height: 240px;
+}
+.icon-block:hover{
+  background-color:#4375c7 ;
+  cursor: pointer;
+  color:white;
+}
+
+.icon-block:hover h4{
+  color:white;
+}
+
+.icon-block-description{
+  width:360px;
+}
+.icon-block-description h4{
+  color:#4375c7;
+  font-size: 20px;
+}

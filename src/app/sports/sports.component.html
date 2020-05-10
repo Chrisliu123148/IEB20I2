@@ -1,0 +1,54 @@
+<div>
+  <img src="../../assets/Elder.jpg">
+
+
+<div id=root>
+  <div class="container">
+    <div class="row">
+      <h1 style="font-family: serif; font-size: xxx-large;margin-top: 10px;">Find Sports Centre near you</h1>
+      <hr />
+      <div class="filter">
+          <div style="width: 100%;">
+              <select [(ngModel)]="searchText" style="float: left;width: 35%;height: 45px;border-radius: 5px;font-size:large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                <option value="" disabled selected>Select a Catagory</option>
+                <option *ngFor="let quo of quote" [value]="quo" style="font-size: larger;">{{ quo }}</option>
+              </select>
+              <button style="height: 45px; width: 100px;font-size:large;margin-left: 10px;color: blue;border-radius: 5px;background-color: paleturquoise;" (click)="reset()">Reset</button>
+            </div>
+            <div class="filter-col2" style="width: 50%;float: right;">
+              <input type="text" id="Postcode_x" maxlength="4"
+              style="width:70%; height: 45px; padding-left: 10px;float: left; font-size: x-large;"
+              placeholder="Search using Postcode..">
+              <button style="width: 15%; height: 45px; margin-left: 10px; font-size: large;color: blue;font-family: Georgia, 'Times New Roman', Times, serif;border-radius: 5px;background-color: paleturquoise;" (click)="reset()">Search</button>
+            </div>
+      </div>
+      <br />
+      <br />
+      <h1 style="font-family: serif; font-size: xxx-large;margin-top: 50px;">Search Result</h1>
+      <hr />
+      <div *ngIf="quotes">
+        <br />
+        <br />
+        <div id="table">
+          <div class="card" *ngFor="let quote of quotes | filter:searchText " style="float: left;">
+            <img src="../../assets/images/sports.jpg">
+            <h1>{{ quote.FacilityName}}</h1>
+            <div style="padding-left: 10px;">
+              <span style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large;"><b
+                style="font-size: larger;">Center Name: </b> {{ quote.FacilityName }}</span>
+              <br />
+              <span style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large;"><b
+                  style="font-size: larger;">Postcode: </b> {{ quote.Postcode_x }}</span>
+              <br />
+              <span style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large;"><b
+                  style="font-size: larger;">Sports Played: </b>{{ quote.SportsPlayed }}</span>
+              <br />
+              <span style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large;"><b
+                  style="font-size: larger;">Suburb: </b>{{ quote.Suburb }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
